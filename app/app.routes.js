@@ -10,6 +10,10 @@ angular.module('bgmarsApp')
         url: '/login',
         templateUrl: 'app/components/login/login.html',
         controller: 'loginController'
+    })
+    .state('logout', {
+        url: '/logout',
+        controller: 'logoutController'
     });
 
 });
