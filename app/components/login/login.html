@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+
+            <div class="row justify-content-center mb-3">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body px-lg-5">
+                            <img src="../assets/img/bg-mars-logo.png" alt="blueground-logo" width="180">
+
+                            <form name="loginForm" novalidate>
+                                <div class="md-form">
+                                    <input ng-model="credentials.colonistID" type="text" id="colonistID" class="form-control" pattern="[a-zA-Z0-9]{2,8}@[0-9]{4}.[a-z]{2}"
+                                    required>
+                                    <label for="colonistID">Colonist ID</label>
+                                </div>
+
+                                <div class="md-form">
+                                    <input ng-model="credentials.password" type="password" id="password" class="form-control" required>
+                                    <label for="password">Password</label>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col text-right">
+                                        <button ng-click="login()" type="submit" class="btn btn-sm btn-primary">Sign In</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col">
+                    <div ng-repeat="message in messages" class="alert alert-danger mw-25 mx-auto d-none" ng-class="{'d-block': messages.length > 0}" role="alert">
+                        {{message}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
