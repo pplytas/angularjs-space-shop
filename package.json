@@ -1,0 +1,24 @@
+{
+  "name": "bg-mars",
+  "version": "1.0.0",
+  "description": "Blueground Goes To Mars Assignment",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -a localhost -p 8000 -c-1 -o"
+  },
+  "author": "Panagiotis Plytas",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://panagiotis_plytas@bitbucket.org/panagiotis_plytas/bg-frontend-assignment.git"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.22",
+    "angular": "^1.7.8",
+    "bootstrap": "^4.3.1",
+    "http-server": "^0.11.1",
+    "jquery": "^3.3.1",
+    "mdbootstrap": "^4.7.5",
+    "popper.js": "^1.14.7"
+  }
+}
