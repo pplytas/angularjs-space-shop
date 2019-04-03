@@ -3,7 +3,7 @@ angular.module('bgmarsApp')
 
     let unitsService = {};
 
-    unitsService.getUnits = function(page=null, perPage=null, query=null) {
+    unitsService.listUnits = function(page=null, perPage=null, query=null) {
         let endpoint = '/units';
         let parameters = {};
         if (page) {
@@ -20,7 +20,8 @@ angular.module('bgmarsApp')
             method: 'GET',
             url: $rootScope.API + endpoint,
             headers: {
-                'Authorization': localStorage.tokenType + ' ' + localStorage.accessToken
+                'Authorization': localStorage.tokenType + ' ' + localStorage.accessToken,
+                'Content-Type': 'application/json'
             },
             params: parameters
         });
