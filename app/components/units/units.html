@@ -24,12 +24,12 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" infinite-scroll="loadMoreUnits()">
         <div ng-repeat="unit in units" class="col-md-4">
             <div class="row p-4">
                 <div class="col">
 
-                    <div class="card">
+                    <div class="card hover">
                         <div class="card-header p-0">
                             <img ng-src="{{'http://mars.theblueground.net' + unit.pictures[0]}}" class="w-100" alt="unit-image">
                         </div>
@@ -73,6 +73,12 @@
 
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div ng-if="allUnitsLoaded" class="row py-4">
+        <div class="col text-center no-units-msg">
+            No more units. All units are displayed.
         </div>
     </div>
 </div>

@@ -12,3 +12,26 @@ input[type=text].ng-valid {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.no-units-msg {
+    font-size: 1.1rem;
+}
+
+.hover {
+    cursor: pointer;
+    transition:
+        color .15s ease-in-out,
+        background-color .15s ease-in-out,
+        border-color .15s ease-in-out,
+        box-shadow .15s ease-in-out,
+        -webkit-box-shadow .15s ease-in-out;
+}
+.hover:hover {
+    -webkit-box-shadow:
+        0 5px 11px 0 rgba(0,0,0,.18),
+        0 4px 15px 0 rgba(0,0,0,.15);
+    box-shadow:
+        0 5px 11px 0 rgba(0,0,0,.18),
+        0 4px 15px 0 rgba(0,0,0,.15);
+    outline: 0;
+}

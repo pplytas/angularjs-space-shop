@@ -1,15 +1,25 @@
 angular.module('bgmarsApp')
-.controller('unitsController', function($scope, unitsService) {
+.controller('unitsController', function($rootScope, $scope, $state, unitsService) {
 
     $scope.units = [];
-    var page = 1;
+    $scope.allUnitsLoaded = false;
+    var page = 0;
 
     $scope.getNumber = function(number) {
         return new Array(number);
     }
 
-    unitsService.getUnits(page, 10).then(function(response) {
-        $scope.units = response.data.data;
-    });
+    $scope.loadMoreUnits = function() {
+        if (!$scope.allUnitsLoaded) {
+            page++;
+            unitsService.getUnits(page, 9).then(function(response) {
+                console.log(response.data);
+                $scope.units = $scope.units.concat(response.data.data);
+                if ($scope.units.length === response.data.meta.totalCount) {
+                    $scope.allUnitsLoaded = true;
+                }
+            });
+        }
+    }
 
 });
