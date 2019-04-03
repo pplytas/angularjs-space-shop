@@ -1,17 +1,13 @@
 <div ng-attr-id="{{modalId}}" class="modal animated fadeInRight faster" role="dialog" aria-hidden="true" tabindex="-1">
-    <div class="modal-dialog modal-full-height modal-right" role="document">
+    <div class="modal-dialog modal-full-height modal-right mw-100 w-auto" role="document">
         <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <div class="modal-header p-0">
+                <img ng-src="{{unit.picturesUrl.large}}" class="animated fadeIn delay-1s d-none d-xl-block" width="600" alt="large-unit-image">
+                <img ng-src="{{unit.picturesUrl.medium}}" class="animated fadeIn delay-1s d-none d-md-block d-xl-none" alt="medium-unit-image">
+                <img ng-src="{{unit.picturesUrl.small}}" class="animated fadeIn delay-1s d-xs-block d-md-none" alt="small-unit-image">
             </div>
             <div class="modal-body">
                 asddasdadsadsasd
-            </div>
-            <div class="modal-footer justify-content-center">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
     </div>

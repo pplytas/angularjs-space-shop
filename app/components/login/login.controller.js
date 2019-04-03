@@ -1,6 +1,10 @@
 angular.module('bgmarsApp')
 .controller('loginController', function($rootScope, $scope, $state, loginService) {
 
+    if (localStorage.accessToken && localStorage.tokenType) {
+        $state.go('root');
+    }
+
     $scope.messages = [];
     $scope.credentials = {
         colonistID: '',
