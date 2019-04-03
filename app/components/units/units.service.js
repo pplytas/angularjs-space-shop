@@ -26,6 +26,37 @@ angular.module('bgmarsApp')
         });
     };
 
+    unitsService.getUnit = function(unitId) {
+        let endpoint = '/units/' + unitId;
+
+        return $http({
+            method: 'GET',
+            url: $rootScope.API + endpoint,
+            headers: {
+                'Authorization': localStorage.tokenType + ' ' + localStorage.accessToken,
+                'Content-Type': 'application/json'
+            }
+        });
+    };
+
+    unitsService.bookUnit = function(unitId, year) {
+        let endpoint = '/units/book';
+        let parameters = {
+            unitId: unitId,
+            year: year
+        };
+
+        return $http({
+            method: 'POST',
+            url: $rootScope.API + endpoint,
+            headers: {
+                'Authorization': localStorage.tokenType + ' ' + localStorage.accessToken,
+                'Content-Type': 'application/json'
+            },
+            data: parameters
+        });
+    };
+
     return unitsService;
 
 });
