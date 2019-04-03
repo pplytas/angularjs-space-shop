@@ -1,0 +1,78 @@
+<nav class="navbar navbar-light shadow-none px-5">
+    <a class="navbar-brand" ui-sref="browse">
+        <img src="assets/img/bg-mars-logo-white.png" width="250" alt="blueground-logo">
+    </a>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="row mb-2">
+        <div class="col-md-4">
+            <div class="row px-4">
+                <div class="col">
+                    <div class="input-group form-sm form-1 pl-0">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text white border-right-0"><i class="fas fa-search text-dark" aria-hidden="true"></i></span>
+                        </div>
+                        <input class="form-control my-0 py-1 border-left-0 border-right-0" type="text" placeholder="Search" aria-label="Search">
+                        <div class="input-group-append">
+                            <span class="input-group-text white border-left-0"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div ng-repeat="unit in units" class="col-md-4">
+            <div class="row p-4">
+                <div class="col">
+
+                    <div class="card">
+                        <div class="card-header p-0">
+                            <img ng-src="{{'http://mars.theblueground.net' + unit.pictures[0]}}" class="w-100" alt="unit-image">
+                        </div>
+                        <div class="card-body">
+                            <div class="container-fluid">
+
+                                <div class="row mb-1">
+                                    <div class="col px-0 font-weight-bold">
+                                        {{unit.name + ' - ' + unit.region}}
+                                    </div>
+                                </div>
+
+                                <div class="row mb-1">
+                                    <div class="col px-0 text-truncated">
+                                        {{unit.description}}
+                                    </div>
+                                </div>
+
+                                <div class="row mb-1">
+                                    <div class="col px-0">
+                                        Cancellation: {{unit.cancellation}}
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col px-0 font-weight-bold">
+                                        {{unit.price}} BTC
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col px-0">
+                                        <i ng-repeat="i in getNumber(unit.rating) track by $index" class="fas fa-star yellow-text"></i>
+                                        <i ng-repeat="i in getNumber(5-unit.rating) track by $index" class="fas fa-star text-light"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

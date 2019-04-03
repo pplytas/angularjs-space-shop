@@ -1,5 +1,5 @@
 angular.module('bgmarsApp')
-.controller('loginController', function($rootScope, $scope, loginService) {
+.controller('loginController', function($rootScope, $scope, $state, loginService) {
 
     $scope.messages = [];
     $scope.credentials = {
@@ -13,6 +13,7 @@ angular.module('bgmarsApp')
             localStorage.accessToken = response.data.token.accessToken;
             localStorage.tokenType = response.data.token.tokenType;
             $rootScope.user = response.data.user;
+            $state.go('root');
         })
         .catch(function(response) {
             $scope.messages = [];
