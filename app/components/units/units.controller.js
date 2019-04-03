@@ -5,8 +5,17 @@ angular.module('bgmarsApp')
     $scope.allUnitsLoaded = false;
     var page = 0;
 
+    // bookModal variables and functions
+    $scope.selectedUnitId = null;
+    $scope.getUnit = unitsService.getUnit;
+    $scope.bookUnit = unitsService.bookUnit;
+
     $scope.getNumber = function(number) {
         return new Array(number);
+    }
+
+    $scope.setSelectedUnitId = function(unitId) {
+        $scope.selectedUnitId = unitId;
     }
 
     $scope.loadMoreUnits = function() {

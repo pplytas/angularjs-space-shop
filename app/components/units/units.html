@@ -29,7 +29,7 @@
             <div class="row p-4">
                 <div class="col">
 
-                    <div class="card hover">
+                    <div ng-click="setSelectedUnitId(unit.id)" class="card hover" data-toggle="modal" data-target="#bookModal">
                         <div class="card-header p-0">
                             <img ng-src="{{'http://mars.theblueground.net' + unit.pictures[0]}}" class="w-100 rounded-top" alt="unit-image">
                         </div>
@@ -82,3 +82,5 @@
         </div>
     </div>
 </div>
+
+<book-modal modal-id="bookModal" unit-id="selectedUnitId" get-unit-fn="getUnit" book-unit-fn="bookUnit"></book-modal>
