@@ -19,10 +19,9 @@ angular.module('bgmarsApp')
     }
 
     $scope.loadMoreUnits = function() {
-        if (!$scope.allUnitsLoaded) {
+        if (!$scope.allUnitsLoaded) {   // Check if all units have been fetched
             page++;
             unitsService.listUnits(page, 9).then(function(response) {
-                console.log(response.data);
                 $scope.units = $scope.units.concat(response.data.data);
                 if ($scope.units.length === response.data.meta.totalCount) {
                     $scope.allUnitsLoaded = true;

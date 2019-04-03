@@ -13,7 +13,6 @@ angular.module('bgmarsApp')
             $scope.$watch('unitId', function(unitId) {     // Trigger on selectedUnitId change
                 if (unitId) {
                     $scope.getUnit(unitId).then(function(response) {
-                        console.log(response.data);
                     })
                 }
             }, true);
