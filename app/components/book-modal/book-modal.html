@@ -2,12 +2,68 @@
     <div class="modal-dialog modal-full-height modal-right mw-100 w-auto" role="document">
         <div class="modal-content">
             <div class="modal-header p-0">
-                <img ng-src="{{unit.picturesUrl.large}}" class="animated fadeIn delay-1s d-none d-xl-block" width="600" alt="large-unit-image">
+                <img ng-src="{{unit.picturesUrl.large}}" class="animated fadeIn delay-1s d-none d-xl-block" width="500" alt="large-unit-image">
                 <img ng-src="{{unit.picturesUrl.medium}}" class="animated fadeIn delay-1s d-none d-md-block d-xl-none" alt="medium-unit-image">
                 <img ng-src="{{unit.picturesUrl.small}}" class="animated fadeIn delay-1s d-xs-block d-md-none" alt="small-unit-image">
             </div>
             <div class="modal-body">
-                asddasdadsadsasd
+
+                <div class="row mb-2">
+                    <div class="col-md-8">
+                        <h5>
+                            <b>{{unit.name}} - {{unit.region}}</b>
+                        </h5>
+                    </div>
+                    <div class="col-md-4 text-md-right">
+                        <span class="p-2 primary-color-dark rounded text-white">
+                            <b>{{unit.price}} BTC</b>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="row mb-1">
+                    <div class="col">
+                        <i ng-repeat="i in getNumber(unit.rating) track by $index" class="fas fa-star yellow-text"></i>
+                        <i ng-repeat="i in getNumber(5-unit.rating) track by $index" class="fas fa-star text-light"></i>
+                    </div>
+                </div>
+
+                <div class="row full-description align-items-center">
+                    <div class="col fs-08">
+                        <p>
+                            Description: <span ng-bind-html="unit.description"></span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            <b>Amenities:</b> {{unit.amenitiesStr}}
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div ng-repeat="year in unit.allYears" class="col-md-3 text-center">
+                        <button ng-click="selectYear(year)"
+                            ng-disabled="!unit.availability.includes(year)"
+                            type="button"
+                            class="btn btn-sm btn-primary rounded w-100 mx-0"
+                            ng-class="{'active': year === selectedYear}">
+                            {{year}}
+                        </button>
+                    </div>
+                </div>
+
+                <div class="row justify-content-end">
+                    <div class="col-md-3">
+                        <button ng-click="book(unitId, selectedYear)" type="button" class="btn btn-md w-100 btn-primary rounded m-0">
+                            BOOK
+                        </button>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

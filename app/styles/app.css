@@ -6,6 +6,10 @@
     width: auto;
 }
 
+.fs-08 {
+    font-size: 0.8rem;
+}
+
 input[type=text].ng-valid {
     border-bottom: 1px solid #00c851 !important;
     box-shadow: 0 1px 0 0 #00c851 !important;
@@ -32,11 +36,11 @@ input[type=text].ng-valid {
 }
 .hover:hover {
     -webkit-box-shadow:
-        0 5px 11px 0 rgba(0,0,0,.18),
-        0 4px 15px 0 rgba(0,0,0,.15);
+        0 6px 12px 0 rgba(0,0,0,.18),
+        0 5px 16px 0 rgba(0,0,0,.15);
     box-shadow:
-        0 5px 11px 0 rgba(0,0,0,.18),
-        0 4px 15px 0 rgba(0,0,0,.15);
+        0 6px 12px 0 rgba(0,0,0,.18),
+        0 5px 16px 0 rgba(0,0,0,.15);
     outline: 0;
 }
 
@@ -52,4 +56,26 @@ input[type=text].ng-valid {
     min-height: 100%;
     top: 0;
     right: 0;
+}
+
+.full-description {
+    min-height: 116px;
+}
+
+@media only screen and (min-width: 0) and (max-width: 767px) {
+    .modal-dialog {
+        width: 200px !important;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1199px) {
+    .modal-dialog {
+        width: 400px !important;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .modal-dialog {
+        width: 500px !important;
+    }
 }
