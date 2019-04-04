@@ -29,41 +29,47 @@
             <div class="row p-4">
                 <div class="col">
 
-                    <div ng-click="setSelectedUnitId(unit.id)" class="card hover" data-toggle="modal" data-target="#bookModal">
+                    <div ng-click="openBookModal(unit.id)" class="card hover">
                         <div class="card-header p-0">
                             <img ng-src="{{'http://mars.theblueground.net' + unit.pictures[0]}}" class="w-100 rounded-top" alt="unit-image">
                         </div>
-                        <div class="card-body">
+                        <div class="card-body px-0">
                             <div class="container-fluid">
 
                                 <div class="row mb-1">
-                                    <div class="col px-0 text-truncated">
+                                    <div class="col text-truncated">
                                         <b>{{unit.name}} - {{unit.region}}</b>
                                     </div>
                                 </div>
 
                                 <div class="row mb-1">
-                                    <div class="col px-0 text-truncated">
+                                    <div class="col text-truncated">
                                         {{unit.description}}
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <div class="col px-0">
+                                    <div class="col">
                                         Cancellation: {{unit.cancellation}}
                                     </div>
                                 </div>
 
                                 <div class="row mb-3">
-                                    <div class="col px-0">
+                                    <div class="col">
                                         <b>{{unit.price}} BTC</b>
                                     </div>
                                 </div>
 
                                 <div class="row">
-                                    <div class="col px-0">
+                                    <div class="col-md-4">
                                         <i ng-repeat="i in getNumber(unit.rating) track by $index" class="fas fa-star yellow-text"></i>
                                         <i ng-repeat="i in getNumber(5-unit.rating) track by $index" class="fas fa-star text-light"></i>
+                                    </div>
+                                    <div class="col-md-8 text-md-right">
+                                        <div ng-if="unit.booking" class="text-success">
+                                            Unit booked for year {{unit.booking.year}}
+                                            <i class="fas fa-check"></i>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -83,4 +89,4 @@
     </div>
 </div>
 
-<book-modal modal-id="bookModal" unit-id="selectedUnitId" get-unit-fn="getUnit" book-unit-fn="bookUnit"></book-modal>
+<book-modal unit-id="selectedUnitId" on-success-fn="onBookSuccess(data)"></book-modal>

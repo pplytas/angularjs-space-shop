@@ -3,9 +3,9 @@ angular.module('bgmarsApp')
 
     $scope.units = [];
     $scope.allUnitsLoaded = false;
-    var page = 0;
+    let page = 0;
 
-    // bookModal variables and functions
+    // Modal variables and functions
     $scope.selectedUnitId = null;
     $scope.getUnit = unitsService.getUnit;
     $scope.bookUnit = unitsService.bookUnit;
@@ -14,12 +14,22 @@ angular.module('bgmarsApp')
         return new Array(number);
     }
 
-    $scope.setSelectedUnitId = function(unitId) {
-        $scope.selectedUnitId = unitId;
+    $scope.openBookModal = function(unitId) {
+        $scope.selectedUnitId = unitId;     // Setting unit id triggers the modal to open
     }
 
+    $scope.onBookSuccess = function(data) {
+        let bookedUnit = $scope.units.find(function(unit) {
+            return unit.id === data.unitId;
+        });
+        bookedUnit.booking = {
+            reference: data.reference,
+            year: data.year
+        };
+    };
+
     $scope.loadMoreUnits = function() {
-        if (!$scope.allUnitsLoaded) {   // Check if all units have been fetched
+        if (!$scope.allUnitsLoaded) {   // Check if all units have been loaded
             page++;
             unitsService.listUnits(page, 9).then(function(response) {
                 $scope.units = $scope.units.concat(response.data.data);
