@@ -33,7 +33,7 @@ angular.module('bgmarsApp')
                 }
                 unit.amenitiesStr = unit.amenities.join(', ');        // Convert amenities array to comma seperated sting
                 let allYears = Array.from(Array(8).keys());           // Create array with all year options (20)
-                unit.allYearOptions = allYears.map(function(year) { return year + 2080; });
+                unit.allYearOptions = allYears.map(function(year) { return year + 2081; });
                 return unit;
             }
 
