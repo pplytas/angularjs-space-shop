@@ -13,7 +13,7 @@ angular.module('bgmarsApp')
             parameters.perPage = perPage;
         }
         if (query) {
-            parameters.query = query;
+            parameters.q = query;
         }
 
         return $http({
