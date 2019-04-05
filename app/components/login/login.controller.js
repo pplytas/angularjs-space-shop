@@ -16,7 +16,6 @@ angular.module('bgmarsApp')
         .then(function(response) {
             localStorage.accessToken = response.data.token.accessToken;
             localStorage.tokenType = response.data.token.tokenType;
-            $rootScope.user = response.data.user;
             $state.go('root');
         })
         .catch(function(response) {
