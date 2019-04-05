@@ -30,12 +30,12 @@ angular.module('bgmarsApp')
                     small: pictureUrl + '-w200.jpg',
                     medium: pictureUrl + '-w400.jpg',
                     large: pictureUrl + '-w800.jpg'
-                }
+                };
                 unit.amenitiesStr = unit.amenities.join(', ');        // Convert amenities array to comma seperated sting
                 let allYears = Array.from(Array(8).keys());           // Create array with all year options (20)
                 unit.allYearOptions = allYears.map(function(year) { return year + 2081; });
                 return unit;
-            }
+            };
 
             $scope.getNumber = function(number) {       // Helper function used in ng-repeat to repeat certain number of times
                 return new Array(number);

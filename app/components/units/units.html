@@ -1,7 +1,23 @@
-<nav class="navbar navbar-light shadow-none px-5">
+<nav class="navbar navbar-expand-lg navbar-light shadow-none px-5">
     <a class="navbar-brand" ui-sref="browse">
         <img src="assets/img/bg-mars-logo-white.png" width="250" alt="blueground-logo">
     </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555" aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+        <ul class="navbar-nav ml-auto nav-flex-icons">
+            <li class="nav-item avatar dropdown">
+                <a class="nav-link" id="navbarDropdownMenuLink-55" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img ng-src="{{user.picture}}" class="avatar-img rounded-circle z-depth-0 mr-2" alt="avatar image">
+                    <span class="avatar-name"><b>{{user.name}}</b></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-55">
+                    <a class="dropdown-item" ui-sref="logout">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 </nav>
 
 <div class="container-fluid">
@@ -12,11 +28,11 @@
                 <div class="col">
                     <div class="input-group form-sm form-1 pl-0">
                         <div class="input-group-prepend">
-                            <span class="input-group-text white border-right-0"><i class="fas fa-search text-dark" aria-hidden="true"></i></span>
+                            <span class="input-group-text white border-right-0 rounded-left"><i class="fas fa-search text-dark" aria-hidden="true"></i></span>
                         </div>
-                        <input ng-model="searchQuery" ng-model-options="{debounce: 1000}" ng-change="searchUnits()" class="form-control my-0 py-1 border-left-0 border-right-0" type="text" placeholder="Search a unit or region" aria-label="Search">
+                        <input ng-model="searchQuery" ng-model-options="{debounce: 400}" ng-change="searchUnits()" class="form-control my-0 py-1 border-left-0 border-right-0" type="text" placeholder="Search a unit or region" aria-label="Search">
                         <div class="input-group-append">
-                            <span class="input-group-text white border-left-0"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
+                            <span class="input-group-text white border-left-0 rounded-right"><i class="fas fa-search text-white" aria-hidden="true"></i></span>
                         </div>
                     </div>
                 </div>
@@ -31,7 +47,9 @@
 
                     <div ng-click="openBookModal(unit.id)" class="card hover">
                         <div class="card-header p-0">
-                            <img ng-src="{{'http://mars.theblueground.net' + unit.pictures[0]}}" class="w-100 rounded-top" alt="unit-image">
+                            <img ng-src="{{unit.picturesUrl.large}}" class="w-100 rounded-top animated fadeIn slower d-none d-xl-block" width="500" alt="large-unit-image">
+                            <img ng-src="{{unit.picturesUrl.medium}}" class="w-100 rounded-top animated fadeIn slower d-none d-md-block d-xl-none" alt="medium-unit-image">
+                            <img ng-src="{{unit.picturesUrl.small}}" class="w-100 rounded-top animated fadeIn slower d-xs-block d-md-none" alt="small-unit-image">
                         </div>
                         <div class="card-body px-0">
                             <div class="container-fluid">

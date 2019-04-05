@@ -1,9 +1,9 @@
 angular.module('bgmarsApp')
-.factory('loginService', function($rootScope, $http) {
+.factory('authService', function($rootScope, $http) {
 
-    let loginService = {};
+    let authService = {};
 
-    loginService.login = function(email, password) {
+    authService.login = function(email, password) {
         let endpoint = '/auth/login';
         let parameters = {
             email: email,
@@ -20,6 +20,6 @@ angular.module('bgmarsApp')
         });
     };
 
-    return loginService;
+    return authService;
 
 });

@@ -1,5 +1,5 @@
 angular.module('bgmarsApp')
-.controller('loginController', function($rootScope, $scope, $state, loginService) {
+.controller('loginController', function($rootScope, $scope, $state, authService) {
 
     if (localStorage.accessToken && localStorage.tokenType) {
         $state.go('root');
@@ -12,7 +12,7 @@ angular.module('bgmarsApp')
     };
 
     $scope.login = function() {
-        loginService.login($scope.credentials.colonistID, $scope.credentials.password)
+        authService.login($scope.credentials.colonistID, $scope.credentials.password)
         .then(function(response) {
             localStorage.accessToken = response.data.token.accessToken;
             localStorage.tokenType = response.data.token.tokenType;

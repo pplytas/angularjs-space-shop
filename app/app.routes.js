@@ -13,7 +13,12 @@ angular.module('bgmarsApp')
     })
     .state('root', {
         url: '/',
-        controller: 'rootController'
+        controller: 'rootController',
+        resolve: {
+            userResponse: function(userService) {
+                return userService.userProfile();
+            }
+        }
     })
     .state('root.browse', {
         url: 'browse',
