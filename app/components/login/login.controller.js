@@ -10,6 +10,11 @@ angular.module('bgmarsApp')
         colonistID: '',
         password: ''
     };
+    $scope.emailIsValid = false;
+
+    $scope.validateEmail = function(email) {
+        $scope.emailIsValid = /^[a-zA-Z0-9]{2,8}@[0-9]{4}.[a-z]{2}$/.test(email);
+    }
 
     $scope.login = function() {
         authService.login($scope.credentials.colonistID, $scope.credentials.password)

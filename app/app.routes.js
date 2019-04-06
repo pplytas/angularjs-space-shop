@@ -16,7 +16,11 @@ angular.module('bgmarsApp')
         controller: 'rootController',
         resolve: {
             userResponse: function(userService) {
-                return userService.userProfile();
+                if (localStorage.accessToken && localStorage.tokenType) {
+                    return userService.userProfile();
+                } else {
+                    return null;
+                }
             }
         }
     })
