@@ -6,7 +6,7 @@
 1. Clone repository.
 
     ```
-    git clone https://panagiotis_plytas@bitbucket.org/panagiotis_plytas/bg-frontend-assignment.git
+    git clone https://bitbucket.org/panagiotis_plytas/bg-frontend-assignment.git
     ```
 
 2. Enter project directory.
