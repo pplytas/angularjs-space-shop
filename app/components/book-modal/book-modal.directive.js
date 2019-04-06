@@ -12,6 +12,7 @@ angular.module('bgmarsApp')
             $scope.unit = {};
             $scope.selectedYear = null;
             $scope.displayNoYearMsg = false;
+            $scope.displayErrorMsg = false;
 
             $scope.$watch('unitId', function(unitId) {      // On modal open fetch unit details
                 if (unitId) {
@@ -32,7 +33,7 @@ angular.module('bgmarsApp')
                     large: pictureUrl + '-w800.jpg'
                 };
                 unit.amenitiesStr = unit.amenities.join(', ');        // Convert amenities array to comma seperated sting
-                let allYears = Array.from(Array(8).keys());           // Create array with all year options (20)
+                let allYears = Array.from(Array(10).keys());           // Create array with all year options (2081-2090)
                 unit.allYearOptions = allYears.map(function(year) { return year + 2081; });
                 return unit;
             };
@@ -51,6 +52,9 @@ angular.module('bgmarsApp')
                     unitsService.bookUnit(unitId, year).then(function(response) {
                         $scope.onSuccess({data:response.data});
                         $('#bookModal').modal('hide');
+                    })
+                    .catch(function(error) {
+                        $scope.displayErrorMsg = true;
                     });
                 } else {
                     $scope.displayNoYearMsg = true;
@@ -61,6 +65,7 @@ angular.module('bgmarsApp')
                 $scope.unit = {};
                 $scope.selectedYear = null;
                 $scope.displayNoYearMsg = false;
+                $scope.displayErrorMsg = false;
             });
 
         }

@@ -8,7 +8,7 @@
             </div>
             <div ng-show="unit" class="modal-body">
 
-                <div class="row mb-2">
+                <div class="row mb-1">
                     <div class="col-md-8">
                         <h5>
                             <b>{{unit.name}} - {{unit.region}}</b>
@@ -30,26 +30,25 @@
 
                 <div class="row full-description align-items-center">
                     <div class="col fs-08">
-                        <p>
-                            Description: <span ng-bind-html="unit.description"></span>
-                        </p>
+                        <p class="mb-1"><b>Description:</b> <span ng-bind-html="unit.description"></span></p>
+                        <p class="mb-2"><b>Cancellation Policy:</b> {{unit.cancellation}}</p>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col">
+                    <div class="col fs-09">
                         <p>
                             <b>Amenities:</b> {{unit.amenitiesStr}}
                         </p>
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                <div class="row mb-2">
                     <div ng-repeat="year in unit.allYearOptions" class="col-md-3 text-center">
                         <button ng-click="selectYear(year)"
                             ng-disabled="!unit.availability.includes(year)"
                             type="button"
-                            class="btn btn-sm btn-primary rounded w-100 mx-0"
+                            class="btn btn-sm btn-primary rounded w-100 mx-0 mt-0"
                             ng-class="{'active': year === selectedYear}">
                             {{year}}
                         </button>
@@ -59,6 +58,7 @@
                 <div class="row">
                     <div class="col-md-9">
                         <span ng-if="displayNoYearMsg" class="text-danger">You need to select a year first.</span>
+                        <span ng-if="displayErrorMsg" class="text-danger">An error occured. Please try again.</span>
                     </div>
                     <div class="col-md-3">
                         <button ng-click="book(unit.id, selectedYear)" type="button" class="btn btn-md w-100 btn-primary rounded m-0">
