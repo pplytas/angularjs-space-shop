@@ -4,7 +4,7 @@ angular.module('bgmarsApp')
     $scope.units = [];
     $scope.allUnitsLoaded = false;
     $scope.selectedUnitId = null;       // Unit id selected for booking
-    $scope.searchQuery = '';
+    var searchQuery = '';
     let page = 0;
 
     $scope.openBookModal = function(unitId) {
@@ -21,18 +21,19 @@ angular.module('bgmarsApp')
         };
     };
 
-    $scope.searchUnits = function() {
+    $scope.searchUnits = function(query) {
         $scope.units = [];
         $scope.allUnitsLoaded = false;
         $scope.selectedUnitId = null;       // Unit id selected for booking
         page = 0;
+        searchQuery = query;
         $scope.loadUnits();
     };
 
     $scope.loadUnits = function() {
         if (!$scope.allUnitsLoaded) {   // Check if all units have been loaded
             page++;
-            unitsService.listUnits(page, 9, $scope.searchQuery).then(function(response) {
+            unitsService.listUnits(page, 9, searchQuery).then(function(response) {
                 $scope.units = $scope.units.concat(response.data.data);
                 if ($scope.units.length === response.data.meta.totalCount) {
                     $scope.allUnitsLoaded = true;

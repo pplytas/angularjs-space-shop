@@ -1,7 +1,7 @@
 angular.module('bgmarsApp')
 .directive('unitCard', function() {
     return {
-        restrict: 'E',              // Only matches element name <book-modal></book-modal>
+        restrict: 'E',              // Only matches element name <unit-card></unit-card>
         scope: {
             unit: '=unit',          // Two-way variable binding
             onClick: '&onClickFn'   // Function binding

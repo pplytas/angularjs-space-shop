@@ -51,7 +51,7 @@ angular.module('bgmarsApp')
                     unitsService.bookUnit(unitId, year).then(function(response) {
                         $scope.onSuccess({data:response.data});
                         $('#bookModal').modal('hide');
-                    })
+                    });
                 } else {
                     $scope.displayNoYearMsg = true;
                 }
