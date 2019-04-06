@@ -29,9 +29,13 @@
     border-radius: 0 50% 50% 0 !important;
 }
 
+.logo-img {
+    width: 14rem;
+}
+
 .avatar-img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
 }
 
 .avatar-name {
@@ -56,13 +60,14 @@
         box-shadow .15s ease-in-out,
         -webkit-box-shadow .15s ease-in-out;
 }
+
 .hover:hover {
     -webkit-box-shadow:
-        0 6px 12px 0 rgba(0,0,0,.18),
-        0 5px 16px 0 rgba(0,0,0,.15);
+        0 6px 12px 0 rgba(0, 0, 0, .18),
+        0 5px 16px 0 rgba(0, 0, 0, .15);
     box-shadow:
-        0 6px 12px 0 rgba(0,0,0,.18),
-        0 5px 16px 0 rgba(0,0,0,.15);
+        0 6px 12px 0 rgba(0, 0, 0, .18),
+        0 5px 16px 0 rgba(0, 0, 0, .15);
     outline: 0;
 }
 
@@ -87,6 +92,10 @@
 @media only screen and (min-width: 0) and (max-width: 767px) {
     .modal-dialog {
         width: 200px !important;
+    }
+
+    .logo-img {
+        width: 10rem;
     }
 }
 
