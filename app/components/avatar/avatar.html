@@ -1,0 +1,9 @@
+<div>
+    <a class="nav-link" id="avatarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <img ng-src="{{avatar.picture}}" class="avatar-img rounded-circle z-depth-0 mr-2" alt="avatar image">
+        <span class="avatar-name"><b>{{avatar.name}}</b></span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right dropdown-secondary" aria-labelledby="avatarDropdown">
+        <a class="dropdown-item" ui-sref="logout">Logout</a>
+    </div>
+</div>

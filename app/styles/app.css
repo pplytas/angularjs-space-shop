@@ -42,6 +42,11 @@
     font-size: 1.1rem;
 }
 
+.navbar {
+    padding-left: 39px;
+    padding-right: 39px;
+}
+
 .hover {
     cursor: pointer;
     transition:

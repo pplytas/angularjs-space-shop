@@ -4,7 +4,7 @@ angular.module('bgmarsApp')
     $scope.units = [];
     $scope.allUnitsLoaded = false;
     $scope.selectedUnitId = null;       // Unit id selected for booking
-    var searchQuery = '';
+    let searchQuery = '';
     let page = 0;
 
     $scope.openBookModal = function(unitId) {
